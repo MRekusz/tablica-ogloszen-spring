@@ -1,7 +1,6 @@
 package com.mrekusz.spring.demo;
 
 import com.mrekusz.spring.demo.model.repositories.UserRepository;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -42,7 +41,6 @@ public class RegistrationController {
         user.setActive(true);
         userRepository.save(user);
         String encodedPassword = passwordEncoder.encode(password);
-
 
         return "redirect:/index.html";
     }
