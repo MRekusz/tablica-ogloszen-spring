@@ -1,6 +1,6 @@
-package com.mrekusz.spring.demo;
+package com.mrekusz.spring.demo.model.repositories.controlers;
 
-import com.mrekusz.spring.demo.model.repositories.UserRepository;
+import com.mrekusz.spring.demo.model.repositories.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class RegistrationController {
 
     private final UserRepository userRepository;
-    PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
 
     @Autowired
@@ -35,12 +35,12 @@ public class RegistrationController {
 
         User user = new User();
         user.setUsername(username);
-        user.setPassword(password);
+        String encodedPassword = passwordEncoder.encode(password);
+        user.setPassword(encodedPassword);
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setActive(true);
         userRepository.save(user);
-        String encodedPassword = passwordEncoder.encode(password);
 
         return "redirect:/index.html";
     }

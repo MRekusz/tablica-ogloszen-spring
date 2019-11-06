@@ -1,7 +1,4 @@
-package com.mrekusz.spring.demo;
-
-import lombok.Getter;
-import lombok.Setter;
+package com.mrekusz.spring.demo.model.repositories.entities;
 
 import javax.persistence.*;
 import java.util.Objects;

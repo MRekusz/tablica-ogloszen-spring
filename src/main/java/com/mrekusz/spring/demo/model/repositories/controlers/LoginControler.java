@@ -1,4 +1,4 @@
-package com.mrekusz.spring.demo.model.repositories;
+package com.mrekusz.spring.demo.model.repositories.controlers;
 
 
 import org.springframework.stereotype.Controller;
@@ -13,7 +13,7 @@ public class LoginControler {
     @GetMapping
     public String prepareLoginPage() {
 
-        return "/WEB-INF/views/views.jsp";
+        return "/WEB-INF/views/login-page.jsp";
 
 
     }
