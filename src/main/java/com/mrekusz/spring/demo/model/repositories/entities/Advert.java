@@ -22,7 +22,6 @@ public class Advert {
     @Column(name = "owner_id", insertable = false, updatable = false)
     private Long ownerId;
 
-
     public Long getId() {
         return id;
     }

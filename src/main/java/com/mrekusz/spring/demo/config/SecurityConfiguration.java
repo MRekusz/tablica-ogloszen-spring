@@ -25,16 +25,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/register").permitAll()
-                .antMatchers("/login").anonymous()
-                .anyRequest().authenticated()
+                    .antMatchers("/register").permitAll()
+                    .antMatchers("/login").anonymous()
+                    .anyRequest().authenticated()
+//                and() - pozwala wrocić do konfiguracji(wraca poziom wyżej)
                 .and()
                 .formLogin()
-                .loginPage("/login")
-                .defaultSuccessUrl("/index.html")
-                .and()
+                    .loginPage("/login")
+                    .defaultSuccessUrl("/index.html")
+                    .and()
                 .logout()
-                .logoutSuccessUrl("/index.html");
+                    .logoutSuccessUrl("/index.html");
+//        wywołać metody po kolej, żeby nie zrestartować nic
     }
 
     @Bean
@@ -44,6 +46,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        świetny przyklad wzorca Builder
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
                 .passwordEncoder(passwordEncoder())
