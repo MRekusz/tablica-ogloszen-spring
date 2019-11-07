@@ -12,6 +12,7 @@
     <script src="/webjars/popper.js/1.14.1/umd/popper.js"></script>
 </head>
 <body>
+<jsp:include page="fragments/main-menu.jsp"/>
 <div class="container">
 
     <sec:authorize access="isAuthenticated()">

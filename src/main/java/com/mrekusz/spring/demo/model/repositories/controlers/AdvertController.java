@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
+import java.time.LocalDateTime;
 
 @Controller
 public class AdvertController {
@@ -33,7 +34,7 @@ public class AdvertController {
         advert.setTitle(title);
         advert.setDescription(description);
         advert.setOwner(user);
-
+        advert.setPosted(LocalDateTime.now());
 
         log.info("Próba zapisu ogłoszenia: " + advert);
         advert = advertRepository.save(advert);

@@ -18,6 +18,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+<jsp:include page="fragments/main-menu.jsp"/>
 <div class="container">
     <div class="row" style="margin-top: 40px">
         <div class="col-1"></div>
