@@ -25,6 +25,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                    .antMatchers().permitAll()
                     .antMatchers("/register").permitAll()
                     .antMatchers("/login").anonymous()
                     .anyRequest().authenticated()
@@ -32,11 +33,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                     .loginPage("/login")
-                    .defaultSuccessUrl("/index.html")
+                    .defaultSuccessUrl("/")
                     .and()
                 .logout()
-                    .logoutSuccessUrl("/index.html");
-//        wywołać metody po kolej, żeby nie zrestartować nic
+                    .logoutSuccessUrl("/");
+//        wywołać metody po kolej, żeby nic nie zrestartować
     }
 
     @Bean

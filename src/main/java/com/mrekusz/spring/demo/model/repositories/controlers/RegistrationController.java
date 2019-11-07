@@ -42,7 +42,7 @@ public class RegistrationController {
         user.setActive(true);
         userRepository.save(user);
 
-        return "redirect:/index.html";
+        return "redirect://";
     }
 
 }
