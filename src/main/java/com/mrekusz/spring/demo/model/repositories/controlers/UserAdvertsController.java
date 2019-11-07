@@ -35,14 +35,6 @@ public class UserAdvertsController {
         List<Advert> advertsAddedByUser = advertRepository.findAllByOwner_UsernameOrderByPostedDesc(username);
         model.addAttribute("adverts", advertsAddedByUser);
 
-//        User user = userRepository.findByUsername(username);
-//        user.setUsername(username);
-
-//        Advert advert = new Advert();
-//        advert.setTitle(title);
-
-//        log.info("Witaj użytkowniku " + user);
-//        log.info("Twoje ogłoszenia " + advert);
 
         return "WEB-INF/views/user-adverts-page.jsp";
     }
