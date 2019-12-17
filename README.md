@@ -1,2 +1,2 @@
 # tablica-ogloszen-spring
-Nauka JEE
+Nauka springa
